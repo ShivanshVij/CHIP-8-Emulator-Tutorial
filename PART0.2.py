@@ -3,7 +3,7 @@ class Architecture:
     MAX_MEMORY = 4096
     PROGRAM_COUNTER_START = 0x200
 
-    def __init__(self, scale):
+    def __init__(self):
 
         # The CHIP-8 had 4k (4096 bytes) of memory
         self.memory = bytearray(self.MAX_MEMORY)
@@ -54,5 +54,11 @@ class Architecture:
         Load the ROM indicated by the filename into memory.
         """
         ROM = open(filename, 'rb').read()
-        for index, value in enumerate(ROM):
-            self.memory[offset + index] = value
+        for i, value in enumerate(ROM):
+            print("Index: {}, value: {}".format(offset+i, hex(value)))
+            self.memory[offset + i] = value
+
+
+if __name__ == '__main__':
+    CPU = Architecture()
+    CPU.LOAD_ROMFILE("C:\\Users\\shiva\\Downloads\\BRIX")

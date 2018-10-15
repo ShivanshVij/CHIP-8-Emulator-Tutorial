@@ -2,7 +2,7 @@ class Architecture:
     # Constants:
     MAX_MEMORY = 4096
 
-    def __init__(self, scale):
+    def __init__(self):
 
         # The CHIP-8 had 4k (4096 bytes) of memory
         self.memory = bytearray(self.MAX_MEMORY)
